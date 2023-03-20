@@ -46,6 +46,8 @@ const addNewQweet = () => {
   };
 
   emit('new-qweet', newQweet);
+
+  newQweetContent.value = '';
 };
 </script>
 
