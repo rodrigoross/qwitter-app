@@ -8,7 +8,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered width="283">
+    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered :width="283">
       <q-icon class="q-pa-md" name="fas fa-kiwi-bird" size="lg" color="primary" />
 
       <q-list>
@@ -104,25 +104,14 @@
   </q-layout>
 </template>
 
-<script>
+<script setup lang="ts">
 import { ref } from "vue";
 
-export default {
-  setup() {
-    const leftDrawerOpen = ref(false);
-    const rightDrawerOpen = ref(false);
+const leftDrawerOpen = ref(false);
+const rightDrawerOpen = ref(false);
+const search = ref("");
 
-    return {
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-
-      rightDrawerOpen,
-      toggleRightDrawer() {
-        rightDrawerOpen.value = !rightDrawerOpen.value;
-      },
-    };
-  },
+const toggleLeftDrawer = () => {
+  leftDrawerOpen.value = !leftDrawerOpen.value;
 };
 </script>
