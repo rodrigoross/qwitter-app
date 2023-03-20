@@ -4,7 +4,7 @@
 
     <q-separator class="divider" size="10px" color="grey-2" />
 
-    <qweet-list :qweets="qweets" />
+    <qweet-list :qweets="qweets" @delete-qweet="removeQweet" />
   </q-page>
 </template>
 
@@ -28,6 +28,14 @@ const qweets = ref([
 
 function pushNewQweet(qweet: any) {
   qweets.value.unshift(qweet);
+}
+
+function removeQweet(qweet: any) {
+  const index = qweets.value.indexOf(qweet);
+
+  if (index !== -1) {
+    qweets.value.splice(index, 1);
+  }
 }
 </script>
 

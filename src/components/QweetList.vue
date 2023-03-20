@@ -1,15 +1,11 @@
 <template>
   <q-list>
-    <qweet-item v-for="qweet in qweets" :key="qweet.date">
-      <template #author> Rodrigo Ross </template>
-      <template #handle> @rodrigoross </template>
-      <template #content>
-        {{ qweet.content }}
-      </template>
-      <template #time>
-        {{ relativeDate(qweet.date) }}
-      </template>
-    </qweet-item>
+    <qweet-item
+      v-for="qweet in qweets"
+      :key="qweet.date"
+      :qweet="qweet"
+      @delete-qweet="deleteSomeQweet"
+    />
   </q-list>
 </template>
 
@@ -27,7 +23,13 @@ const props = defineProps<{
 
 const qweets = ref(props.qweets);
 
+const emit = defineEmits(['delete-qweet']);
+
 function relativeDate(date: number): string {
   return formatDistance(date, new Date());
+}
+
+function deleteSomeQweet(qweet: any) {
+  emit('delete-qweet', qweet);
 }
 </script>
