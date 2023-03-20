@@ -28,6 +28,7 @@
         color="primary"
         label="Qweet"
         :disable="!newQweetContent"
+        @click="addNewQweet"
       />
     </div>
   </div>
@@ -35,8 +36,17 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-
+const emit = defineEmits(['new-qweet']);
 const newQweetContent = ref('');
+
+const addNewQweet = () => {
+  let newQweet = {
+    content: newQweetContent.value,
+    date: Date.now(),
+  };
+
+  emit('new-qweet', newQweet);
+};
 </script>
 
 <style scoped lang="sass">

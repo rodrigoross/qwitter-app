@@ -18,18 +18,14 @@ import { ref } from 'vue';
 import QweetItem from 'src/components/QweetItem.vue';
 import { formatDistance } from 'date-fns';
 
-const qweets = ref([
-  {
-    content:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. VeritatisLorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis cumque aliquid doloremque ab nisi! Velit optio voluptate ducimus impedit eius, ea ipsa veniam qui sapiente! Animi neque aperiam dolores enim!',
-    date: 1711653238224,
-  },
-  {
-    content:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. VeritatisLorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis cumque aliquid doloremque ab nisi! Velit optio voluptate ducimus impedit eius, ea ipsa veniam qui sapiente! Animi neque aperiam dolores enim!',
-    date: 1711653238224,
-  },
-]);
+const props = defineProps<{
+  qweets: {
+    content: string;
+    date: number;
+  }[];
+}>();
+
+const qweets = ref(props.qweets);
 
 function relativeDate(date: number): string {
   return formatDistance(date, new Date());
