@@ -1,5 +1,5 @@
 <template>
-  <q-item class="q-py-md">
+  <q-item class="qweet q-py-md">
     <q-item-section avatar top>
       <q-avatar>
         <img
@@ -61,4 +61,7 @@ function deleteQweet(qweet: any) {
 
 .qweet-icons
   margin-left: -5px
+
+.qweet:not(:first-child)
+  border-top: 1px solid rgba(0, 0, 0, 0.12)
 </style>

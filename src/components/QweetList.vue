@@ -1,11 +1,17 @@
 <template>
   <q-list>
-    <qweet-item
-      v-for="qweet in qweets"
-      :key="qweet.date"
-      :qweet="qweet"
-      @delete-qweet="deleteSomeQweet"
-    />
+    <transition-group
+      appear
+      enter-active-class="animated fadeIn slow"
+      leave-active-class="animated fadeOut"
+    >
+      <qweet-item
+        v-for="qweet in qweets"
+        :key="qweet.date"
+        :qweet="qweet"
+        @delete-qweet="deleteSomeQweet"
+      />
+    </transition-group>
   </q-list>
 </template>
 
