@@ -16,24 +16,39 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered :width="283">
-      <q-icon class="q-pa-md" name="fas fa-kiwi-bird" size="lg" color="primary" />
+    <q-drawer
+      show-if-above
+      v-model="leftDrawerOpen"
+      side="left"
+      bordered
+      :width="283"
+    >
+      <q-icon
+        class="q-pa-md"
+        name="fas fa-kiwi-bird"
+        size="lg"
+        color="primary"
+      />
 
       <q-list>
-        <q-item clickable v-ripple to="/">
+        <q-item clickable v-ripple to="/" exact>
           <q-item-section avatar>
             <q-icon name="home" size="md" />
           </q-item-section>
 
-          <q-item-section class="text-h6 text-weight-bold">Home</q-item-section>
+          <q-item-section class="text-h6 text-weight-bold">
+            Home
+          </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple to="/about">
+        <q-item clickable v-ripple to="/about" exact>
           <q-item-section avatar>
             <q-icon name="help" size="md" />
           </q-item-section>
 
-          <q-item-section class="text-h6 text-weight-bold">About</q-item-section>
+          <q-item-section class="text-h6 text-weight-bold">
+            About
+          </q-item-section>
         </q-item>
       </q-list>
     </q-drawer>
@@ -56,13 +71,13 @@
         <q-item class="q-pa-md">
           <q-item-section>
             <q-item-label class="text-grey" overline>Education</q-item-label>
-            <q-item-label class="text-weight-bold"
-              >Something amazing happened!</q-item-label
-            >
-            <q-item-label caption
-              >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
-              elit.</q-item-label
-            >
+            <q-item-label class="text-weight-bold">
+              Something amazing happened!
+            </q-item-label>
+            <q-item-label caption>
+              Secondary line text. Lorem ipsum dolor sit amet, consectetur
+              adipiscit elit.
+            </q-item-label>
           </q-item-section>
 
           <q-item-section side top>
@@ -73,13 +88,13 @@
         <q-item class="q-pa-md">
           <q-item-section>
             <q-item-label class="text-grey" overline>Education</q-item-label>
-            <q-item-label class="text-weight-bold"
-              >Something amazing happened!</q-item-label
-            >
-            <q-item-label caption
-              >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
-              elit.</q-item-label
-            >
+            <q-item-label class="text-weight-bold">
+              Something amazing happened!
+            </q-item-label>
+            <q-item-label caption>
+              Secondary line text. Lorem ipsum dolor sit amet, consectetur
+              adipiscit elit.
+            </q-item-label>
           </q-item-section>
 
           <q-item-section side top>
@@ -90,13 +105,13 @@
         <q-item class="q-pa-md">
           <q-item-section>
             <q-item-label class="text-grey" overline>Education</q-item-label>
-            <q-item-label class="text-weight-bold"
-              >Something amazing happened!</q-item-label
-            >
-            <q-item-label caption
-              >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
-              elit.</q-item-label
-            >
+            <q-item-label class="text-weight-bold">
+              Something amazing happened!
+            </q-item-label>
+            <q-item-label caption>
+              Secondary line text. Lorem ipsum dolor sit amet, consectetur
+              adipiscit elit.
+            </q-item-label>
           </q-item-section>
 
           <q-item-section side top>
@@ -113,11 +128,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 
 const leftDrawerOpen = ref(false);
 const rightDrawerOpen = ref(false);
-const search = ref("");
+const search = ref('');
 
 const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value;
