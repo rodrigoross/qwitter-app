@@ -32,12 +32,13 @@
     </q-item-section>
 
     <q-item-section side top>
-      <slot name="time" />
+      {{ relativeDate(qweet.date) }}
     </q-item-section>
   </q-item>
 </template>
 
 <script setup lang="ts">
+import { formatDistance } from 'date-fns';
 import { ref } from 'vue';
 
 const emit = defineEmits(['delete-qweet']);
@@ -49,6 +50,10 @@ const props = defineProps<{
 }>();
 
 const qweet = ref(props.qweet);
+
+function relativeDate(date: number): string {
+  return formatDistance(date, new Date());
+}
 
 function deleteQweet(qweet: any) {
   emit('delete-qweet', qweet);

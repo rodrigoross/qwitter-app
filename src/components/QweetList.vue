@@ -31,10 +31,6 @@ const qweets = ref(props.qweets);
 
 const emit = defineEmits(['delete-qweet']);
 
-function relativeDate(date: number): string {
-  return formatDistance(date, new Date());
-}
-
 function deleteSomeQweet(qweet: any) {
   emit('delete-qweet', qweet);
 }
