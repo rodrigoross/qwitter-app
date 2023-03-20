@@ -1,0 +1,45 @@
+<template>
+  <q-item class="q-py-md">
+    <q-item-section avatar top>
+      <q-avatar>
+        <img
+          src="https://lh3.googleusercontent.com/ogw/AAEL6shwqaCkwmRyRk-iUohVdp67AwH9p5glHNTvrWfTxQ=s64-c-mo"
+        />
+      </q-avatar>
+    </q-item-section>
+
+    <q-item-section>
+      <q-item-label class="text-subtitle1">
+        <strong>
+          <slot name="author" />
+        </strong>
+        <span class="text-grey-7">
+          <slot name="handle" />
+        </span>
+      </q-item-label>
+      <q-item-label class="qweet-content text-body1">
+        <slot name="content" />
+      </q-item-label>
+      <div class="row justify-between q-mt-sm qweet-icons">
+        <q-btn flat round color="grey" size="sm" icon="far fa-comment" />
+        <q-btn flat round color="grey" size="sm" icon="fas fa-retweet" />
+        <q-btn flat round color="grey" size="sm" icon="far fa-heart" />
+        <q-btn flat round color="grey" size="sm" icon="fas fa-trash" />
+      </div>
+    </q-item-section>
+
+    <q-item-section side top>
+      <slot name="time" />
+    </q-item-section>
+  </q-item>
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped lang="sass">
+.qweet-content
+  white-space: pre-line
+
+.qweet-icons
+  margin-left: -5px
+</style>

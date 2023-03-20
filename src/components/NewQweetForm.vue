@@ -12,7 +12,9 @@
       >
         <template v-slot:before>
           <q-avatar size="xl">
-            <img src="https://cdn.quasar.dev/img/avatar5.jpg" />
+            <img
+              src="https://lh3.googleusercontent.com/ogw/AAEL6shwqaCkwmRyRk-iUohVdp67AwH9p5glHNTvrWfTxQ=s64-c-mo"
+            />
           </q-avatar>
         </template>
       </q-input>
