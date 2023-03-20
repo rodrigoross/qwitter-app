@@ -1,10 +1,12 @@
 <template>
-  <q-page>
-    <new-qweet-form @new-qweet="pushNewQweet" />
+  <q-page class="relative-position">
+    <q-scroll-area class="absolute fullscreen">
+      <new-qweet-form @new-qweet="pushNewQweet" />
 
-    <q-separator class="divider" size="10px" color="grey-2" />
+      <q-separator class="divider" size="10px" color="grey-2" />
 
-    <qweet-list :qweets="qweets" @delete-qweet="removeQweet" />
+      <qweet-list :qweets="qweets" @delete-qweet="removeQweet" />
+    </q-scroll-area>
   </q-page>
 </template>
 
