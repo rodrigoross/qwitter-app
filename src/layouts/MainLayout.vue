@@ -4,7 +4,15 @@
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title class="text-weight-bold"> Qwitter </q-toolbar-title>
+        <q-toolbar-title class="text-weight-bold">
+          <span class="gt-sm"> Qwitter</span>
+          <q-icon
+            class="q-pa-md lt-md header-icon"
+            name="fas fa-kiwi-bird"
+            size="sm"
+            color="primary"
+          />
+        </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
@@ -115,3 +123,11 @@ const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 };
 </script>
+
+<style lang="sass">
+.header-icon
+  position: absolute
+  bottom: 0
+  left: 50%
+  transform: translateX(-50%)
+</style>
