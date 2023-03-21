@@ -39,16 +39,18 @@
 </template>
 
 <script setup lang="ts">
+import { deleteDoc, doc } from '@firebase/firestore';
 import { formatDistance } from 'date-fns';
-import { ref } from 'vue';
+import db from 'src/boot/firebase';
+import { Qweet } from 'src/types/qweet';
+import { ref, PropType } from 'vue';
 
-const emit = defineEmits(['delete-qweet']);
-const props = defineProps<{
+const props = defineProps({
   qweet: {
-    content: string;
-    date: number;
-  };
-}>();
+    type: Object as PropType<Qweet>,
+    required: true,
+  },
+});
 
 const qweet = ref(props.qweet);
 
@@ -56,8 +58,10 @@ function relativeDate(date: number): string {
   return formatDistance(date, new Date());
 }
 
-function deleteQweet(qweet: any) {
-  emit('delete-qweet', qweet);
+function deleteQweet(qweet: Qweet) {
+  deleteDoc(doc(db, 'qweets', qweet.id)).catch((err) => {
+    console.error(err);
+  });
 }
 </script>
 
