@@ -24,7 +24,13 @@
       <div class="row justify-between q-mt-sm qweet-icons">
         <q-btn flat round color="grey" size="sm" icon="far fa-comment" />
         <q-btn flat round color="grey" size="sm" icon="fas fa-retweet" />
-        <q-btn flat round color="grey" size="sm" icon="far fa-heart" />
+        <q-btn
+          flat
+          round
+          :color="qweet.liked ? 'red' : 'grey'"
+          size="sm"
+          :icon="qweet.liked ? 'fas fa-heart' : 'far fa-heart'"
+        />
         <q-btn
           flat
           round

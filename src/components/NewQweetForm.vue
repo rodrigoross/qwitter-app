@@ -44,6 +44,7 @@ const addNewQweet = async () => {
   let newQweet = {
     content: newQweetContent.value,
     date: Date.now(),
+    liked: false,
   };
 
   // Adicionar registro em coleção

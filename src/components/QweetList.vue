@@ -26,8 +26,7 @@ onMounted(() => {
     snapshot.docChanges().forEach((change) => {
       let qweetChange: Qweet = {
         id: change.doc.id,
-        content: change.doc.data().content,
-        date: change.doc.data().date,
+        ...change.doc.data(),
       };
 
       if (change.type === 'added') {
