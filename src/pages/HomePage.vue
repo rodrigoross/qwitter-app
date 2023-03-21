@@ -1,6 +1,6 @@
 <template>
   <q-page class="relative-position">
-    <q-scroll-area class="absolute fullscreen">
+    <q-scroll-area class="absolute full-width full-height">
       <new-qweet-form />
 
       <q-separator class="divider" size="10px" color="grey-2" />
