@@ -35,17 +35,21 @@
 </template>
 
 <script setup lang="ts">
+import { addDoc, collection } from '@firebase/firestore';
+import db from 'src/boot/firebase';
 import { ref } from 'vue';
-const emit = defineEmits(['new-qweet']);
 const newQweetContent = ref('');
 
-const addNewQweet = () => {
+const addNewQweet = async () => {
   let newQweet = {
     content: newQweetContent.value,
     date: Date.now(),
   };
 
-  emit('new-qweet', newQweet);
+  // Adicionar registro em coleção
+  const docRef = await addDoc(collection(db, 'qweets'), newQweet);
+
+  console.log('Document written with ID: ', docRef.id);
 
   newQweetContent.value = '';
 };
