@@ -30,6 +30,7 @@
           :color="qweet.liked ? 'red' : 'grey'"
           size="sm"
           :icon="qweet.liked ? 'fas fa-heart' : 'far fa-heart'"
+          @click="toggleLiked(qweet)"
         />
         <q-btn
           flat
@@ -45,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { deleteDoc, doc } from '@firebase/firestore';
+import { deleteDoc, doc, updateDoc } from '@firebase/firestore';
 import { formatDistance } from 'date-fns';
 import db from 'src/boot/firebase';
 import { Qweet } from 'src/types/qweet';
@@ -60,15 +61,23 @@ const props = defineProps({
 
 const qweet = ref(props.qweet);
 
-function relativeDate(date: number): string {
+const relativeDate = (date: number): string => {
   return formatDistance(date, new Date());
-}
+};
 
-function deleteQweet(qweet: Qweet) {
+const deleteQweet = (qweet: Qweet) => {
   deleteDoc(doc(db, 'qweets', qweet.id)).catch((err) => {
     console.error(err);
   });
-}
+};
+
+const toggleLiked = (qweet: Qweet) => {
+  updateDoc(doc(db, 'qweets', qweet.id), {
+    liked: !qweet.liked,
+  }).catch((err) => {
+    console.error(err);
+  });
+};
 </script>
 
 <style scoped lang="sass">

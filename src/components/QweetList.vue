@@ -35,6 +35,14 @@ onMounted(() => {
       }
       if (change.type === 'modified') {
         console.log('Modified: ', change.doc.data());
+
+        const index = qweets.value.findIndex(
+          (qweet) => qweet.id === qweetChange.id
+        );
+
+        if (index !== -1) {
+          Object.assign(qweets.value[index], qweetChange);
+        }
       }
       if (change.type === 'removed') {
         console.log('Removed: ', qweetChange);
